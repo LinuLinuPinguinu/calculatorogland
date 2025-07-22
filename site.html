@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💊 Calculator Coca & Crack | OGLAND</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(145deg, #0d0d0d, #1a0000);
+      color: #f1f1f1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #ff1a1a;
+      text-shadow: 0 0 10px #ff1a1a;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .container {
+      background: #111;
+      border-radius: 12px;
+      padding: 25px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    }
+
+    label {
+      margin-top: 15px;
+      display: block;
+      font-weight: bold;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #222;
+      color: white;
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: #cc0000;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #ff1a1a;
+      transform: scale(1.02);
+      box-shadow: 0 0 10px #ff1a1a;
+    }
+
+    .result {
+      margin-top: 25px;
+      background: #1c1c1c;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+      line-height: 1.6;
+    }
+
+    b {
+      color: #ff4d4d;
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 { font-size: 24px; }
+      .container { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💊 OGLAND - Calculator Coca & Crack</h1>
+
+  <div class="container">
+    <label for="cocaCount">Număr plicuri de coca dorite:</label>
+    <input type="number" id="cocaCount" value="200">
+
+    <button onclick="calculeaza()">Calculează</button>
+
+    <div class="result" id="output"></div>
+  </div>
+
+  <script>
+    function calculeaza() {
+      const coca = parseInt(document.getElementById("cocaCount").value);
+      const batchSize = 100;
+
+      const amoniacPret = 4500;
+      const sodiuPret = 4500;
+      const plicPret = 150;
+      const cocaPretLivrare = 4900;
+      const crackPretLivrare = 3170;
+      const apaPret = 20;
+      const brichetaPret = 150;
+
+      const nrBatchuri = coca / batchSize;
+
+      const totalAmoniac = nrBatchuri * 25;
+      const totalSodiu = nrBatchuri * 25;
+      const totalFrunze = nrBatchuri * 300;
+      const totalPlicuri = coca;
+
+      const costMateriiCoca = (totalAmoniac * amoniacPret) + (totalSodiu * sodiuPret) + (totalPlicuri * plicPret);
+      const castigMurdarCoca = coca * cocaPretLivrare;
+
+      const crack = coca * 2;
+      const totalApa = crack;
+      const totalBrichete = crack / 2;
+      const costMateriiCrack = (totalApa * apaPret) + (totalBrichete * brichetaPret);
+      const castigMurdarCrack = crack * crackPretLivrare;
+
+      document.getElementById("output").innerHTML = `
+        <h2>Rezultate:</h2>
+        <b>🔹 Coca:</b><br>
+        - Amoniac: ${totalAmoniac} bucăți<br>
+        - Sodiu: ${totalSodiu} bucăți<br>
+        - Frunze: ${totalFrunze} bucăți<br>
+        - Plicuri: ${totalPlicuri} bucăți<br>
+        - Cost total coca: <b>${costMateriiCoca.toLocaleString()} $</b><br>
+        - Câștig murdar coca: <b>${castigMurdarCoca.toLocaleString()} $</b><br><br>
+
+        <b>🔹 Crack:</b><br>
+        - Crack produs: ${crack} bucăți<br>
+        - Apă: ${totalApa} bucăți<br>
+        - Brichete: ${totalBrichete} bucăți<br>
+        - Cost total crack: <b>${costMateriiCrack.toLocaleString()} $</b><br>
+        - Câștig murdar crack: <b>${castigMurdarCrack.toLocaleString()} $</b>
+      `;
+    }
+  </script>
+</body>
+</html>
