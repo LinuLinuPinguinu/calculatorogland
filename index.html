@@ -336,30 +336,96 @@
   <div id="made-by">Made by Linu</div>
 
   <script>
+    // Toate armele cu valorile reale
     const arme = {
-      "Pistol": { murdari: 13000, fixare: 1, cadre: 1, tevi: 1, mecanisme: 1, extended: true, suppressor: true },
-      "Pistol50": { murdari: 52500, fixare: 3, cadre: 1, tevi: 1, mecanisme: 1, extended: true, suppressor: true },
-      "Pistol MK2": { murdari: 32500, fixare: 3, cadre: 1, tevi: 1, mecanisme: 1, extended: true, suppressor: true },
-      "Machine Pistol(Tec)": { murdari: 97500, fixare: 5, cadre: 1, tevi: 1, mecanisme: 1, extended: true, suppressor: true },
-      "Double Action": { murdari: 130000, fixare: 9, cadre: 1, tevi: 1, mecanisme: 1, extended: false, suppressor: false },
-      "Vintage Pistol": { murdari: 117000, fixare: 9, cadre: 1, tevi: 1, mecanisme: 1, extended: true, suppressor: true },
-      "Ceramic Pistol": { murdari: 45500, fixare: 4, cadre: 1, tevi: 1, mecanisme: 1, extended: true, suppressor: true },
-      "Navy": { murdari: 195000, fixare: 15, cadre: 1, tevi: 1, mecanisme: 1, extended: false, suppressor: false },
-      "Revolver": { murdari: 182000, fixare: 15, cadre: 1, tevi: 1, mecanisme: 1, extended: false, suppressor: false },
-
-      "Micro SMG": { murdari: 39000, fixare: 3, cadre: 1, tevi: 1, mecanisme: 1, extended: true, suppressor: true },
-      "SawnoffShotgun": { murdari: 145000, fixare: 12, cadre: 1, tevi: 1, mecanisme: 1, extended: false, suppressor: false },
-
-      "Assult Rifle": { murdari: 58500, fixare: 7, cadre: 1, tevi: 1, mecanisme: 1, extended: true, suppressor: false },
-      "Assult Rifle MK2": { murdari: 65000, fixare: 10, cadre: 1, tevi: 1, mecanisme: 1, extended: true, suppressor: true },
-      "Compact Rifle": { murdari: 117000, fixare: 12, cadre: 1, tevi: 1, mecanisme: 1, extended: true, suppressor: false },
-      "Gusenberg": { murdari: 162500, fixare: 13, cadre: 1, tevi: 1, mecanisme: 1, extended: false, suppressor: false },
-
-      "MG": { murdari: 390000, fixare: 15, cadre: 0, tevi: 0, mecanisme: 0, extended: true, suppressor: false } 
+      // Pistoale
+      "Pistol": { 
+        murdari: 13000, fixare: 1, cadre: 1, tevi: 1, mecanisme: 1,
+        extended: { fixare: 1, otel: 1, arc: 5 },
+        flashlight: { fixare: 1, otel: 1, bec: 1, lupa: 2 },
+        suppressor: { fixare: 1, otel: 1, cauciuc: 3 }
+      },
+      "Pistol50": { 
+        murdari: 52500, fixare: 3, cadre: 1, tevi: 1, mecanisme: 1,
+        extended: { fixare: 2, otel: 1, arc: 5 },
+        flashlight: { fixare: 1, otel: 1, bec: 1, lupa: 2 },
+        suppressor: { fixare: 2, otel: 1, cauciuc: 3 }
+      },
+      "Pistol MK2": { 
+        murdari: 32500, fixare: 3, cadre: 1, tevi: 1, mecanisme: 1,
+        extended: { fixare: 3, otel: 1, arc: 5 },
+        flashlight: { fixare: 1, otel: 1, bec: 1, lupa: 2 },
+        suppressor: { fixare: 3, otel: 1, cauciuc: 3 },
+        scope: { fixare: 1, otel: 1, lupa: 2 },
+        compensator: { fixare: 1, otel: 1 }
+      },
+      "Machine Pistol (Tec)": { 
+        murdari: 97500, fixare: 5, cadre: 1, tevi: 1, mecanisme: 1,
+        extended: { fixare: 3, otel: 1, arc: 5 },
+        suppressor: { fixare: 3, otel: 1, cauciuc: 3 }
+      },
+      "Double Action": { murdari: 130000, fixare: 9, cadre: 1, tevi: 1, mecanisme: 1 },
+      "Vintage Pistol": { 
+        murdari: 117000, fixare: 9, cadre: 1, tevi: 1, mecanisme: 1,
+        extended: { fixare: 1, otel: 1, arc: 5 },
+        suppressor: { fixare: 3, otel: 1, cauciuc: 3 }
+      },
+      "Ceramic Pistol": { 
+        murdari: 45500, fixare: 4, cadre: 1, tevi: 1, mecanisme: 1,
+        extended: { fixare: 1, otel: 1, arc: 5 },
+        suppressor: { fixare: 3, otel: 1, cauciuc: 3 }
+      },
+      "Navy": { murdari: 195000, fixare: 15, cadre: 1, tevi: 1, mecanisme: 1 },
+      "Revolver": { murdari: 182000, fixare: 15, cadre: 1, tevi: 1, mecanisme: 1 },
+      
+      // Assault
+      "Micro SMG": { 
+        murdari: 39000, fixare: 3, cadre: 1, tevi: 1, mecanisme: 1,
+        extended: { fixare: 2, otel: 1, arc: 5 },
+        flashlight: { fixare: 1, otel: 1, bec: 1 },
+        suppressor: { fixare: 2, otel: 1, cauciuc: 3 },
+        scope: { fixare: 1, otel: 1 }
+      },
+      "Sawnoff Shotgun": { murdari: 145000, fixare: 12, cadre: 1, tevi: 1, mecanisme: 1 },
+      "Assault Rifle": { 
+        murdari: 58500, fixare: 7, cadre: 1, tevi: 1, mecanisme: 1,
+        extended: { fixare: 8, otel: 1, arc: 8 },
+        flashlight: { fixare: 1, otel: 1, bec: 1, lupa: 2 },
+        scope: { fixare: 2, otel: 1, bec: 1, lupa: 2 },
+        grip: { cauciuc: 2 }
+      },
+      "Assault Rifle MK2": { 
+        murdari: 65000, fixare: 10, cadre: 1, tevi: 1, mecanisme: 1,
+        extended: { fixare: 8, otel: 1, arc: 8 },
+        flashlight: { fixare: 1, otel: 1, bec: 1, lupa: 2 },
+        scope: { fixare: 2, otel: 1, bec: 1, lupa: 2 },
+        suppressor: { fixare: 2, otel: 1, cauciuc: 3 },
+        grip: { cauciuc: 2 },
+        holographic: { fixare: 2, otel: 1, bec: 1, lupa: 2 },
+        largescope: { fixare: 2, otel: 1, bec: 1, lupa: 2 },
+        muzzleflat: { fixare: 2, otel: 2 },
+        muzzletactical: { fixare: 2, otel: 2 },
+        muzzleend: { fixare: 2, otel: 2 },
+        heavymuzzle: { fixare: 2, otel: 2 },
+        slantedmuzzle: { fixare: 2, otel: 2 },
+        splitendmuzzle: { fixare: 2, otel: 2 },
+        heavybarrel: { fixare: 2, otel: 2 }
+      },
+      "Compact Rifle": { 
+        murdari: 117000, fixare: 12, cadre: 1, tevi: 1, mecanisme: 1,
+        extended: { fixare: 8, otel: 1, arc: 8 }
+      },
+      "Gusenberg": { murdari: 162500, fixare: 13, cadre: 1, tevi: 1, mecanisme: 1 },
+      "MG": { 
+        murdari: 390000, fixare: 15,
+        extended: { fixare: 5, otel: 1, arc: 10 },
+        scope: { fixare: 1, otel: 1, lupa: 2 }
+      }
     };
 
-    // Populate weapon select
+    // Populează lista de arme
     const armaSelect = document.getElementById("arma");
+    armaSelect.innerHTML = "";
     Object.keys(arme).forEach(nume => {
       const opt = document.createElement("option");
       opt.value = nume;
@@ -392,51 +458,47 @@
 
     // Calculator Arme function
     function calculeazaArme() {
-      const arma = document.getElementById("arma").value;
-      const pretOtel = parseFloat(document.getElementById("pretOtel").value);
-      const procentMurdari = parseFloat(document.getElementById("procentMurdari").value);
-      const numarArme = parseInt(document.getElementById("numarArme").value);
-      const fullWeapon = document.getElementById("fullWeapon").checked;
+      const a = arme[armaSelect.value];
+      const n = parseInt(document.getElementById("numarArme").value) || 1;
+      const po = parseFloat(document.getElementById("pretOtel").value) || 0;
+      const pc = parseFloat(document.getElementById("procentMurdari").value) || 0;
+      const full = document.getElementById("fullWeapon").checked;
 
-      const armaData = arme[arma];
-      const fixare = armaData.fixare * numarArme;
-      const cadre = armaData.cadre * numarArme;
-      const tevi = armaData.tevi * numarArme;
-      const mecanisme = armaData.mecanisme * numarArme;
+      let fix = (a.fixare || 0) * n;
+      let cadre = (a.cadre || 0) * n;
+      let tevi = (a.tevi || 0) * n;
+      let mecan = (a.mecanisme || 0) * n;
+      let arc = 0, cau = 0, ot = 0;
 
-      let otelTotal = fixare * 2 + cadre + tevi + mecanisme;
-      let arc = 0;
-      let cauciuc = 0;
-
-      if (fullWeapon) {
-        if (armaData.extended) {
-          arc += 5 * numarArme;
-          otelTotal += 1 * numarArme;
+      if (full) {
+        if (a.extended) {
+          arc += (a.extended.arc || 0) * n;
+          fix += (a.extended.fixare || 0) * n;
+          ot += (a.extended.otel || 0) * n;
         }
-        if (armaData.suppressor) {
-          cauciuc += 3 * numarArme;
-          otelTotal += 1 * numarArme;
+        if (a.suppressor) {
+          cau += (a.suppressor.cauciuc || 0) * n;
+          fix += (a.suppressor.fixare || 0) * n;
+          ot += (a.suppressor.otel || 0) * n;
         }
       }
 
-      const costOtel = otelTotal * pretOtel;
-      const costMurdari = armaData.murdari * numarArme;
-      const costCurati = costMurdari * (1 - procentMurdari / 100);
-      const costTotal = costOtel + costCurati + arc * 1500 + cauciuc * 3090;
+      const otelTotal = fix * 2 + cadre + tevi + mecan + ot;
+      const costMurd = a.murdari * n;
+      const costCurat = costMurd * (1 - pc / 100);
+      const costTot = otelTotal * po + arc * 1500 + cau * 3090 + costCurat;
 
-      // Afisare rezultate
-      document.getElementById("costMurdari").textContent = costMurdari.toLocaleString();
-      document.getElementById("afisPretOtel").textContent = costOtel.toLocaleString();
-      document.getElementById("totalOtel").textContent = otelTotal;
-      document.getElementById("costCurati").textContent = Math.round(costCurati).toLocaleString();
-      document.getElementById("costTotal").textContent = Math.round(costTotal).toLocaleString();
-
-      document.getElementById("totalFixare").textContent = fixare;
+      document.getElementById("totalFixare").textContent = fix;
       document.getElementById("totalCadre").textContent = cadre;
       document.getElementById("totalTevi").textContent = tevi;
-      document.getElementById("totalMecanisme").textContent = mecanisme;
+      document.getElementById("totalMecanisme").textContent = mecan;
       document.getElementById("totalArc").textContent = arc;
-      document.getElementById("totalCauciuc").textContent = cauciuc;
+      document.getElementById("totalCauciuc").textContent = cau;
+      document.getElementById("totalOtel").textContent = otelTotal;
+      document.getElementById("costMurdari").textContent = costMurd.toLocaleString();
+      document.getElementById("afisPretOtel").textContent = (otelTotal * po).toLocaleString();
+      document.getElementById("costCurati").textContent = Math.round(costCurat).toLocaleString();
+      document.getElementById("costTotal").textContent = Math.round(costTot).toLocaleString();
     }
 
     // Calculator Droguri function
